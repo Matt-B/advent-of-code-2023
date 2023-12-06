@@ -1,10 +1,9 @@
 package uk.co.matt_bailey.adventofcode2023
 
 class Day01 {
-
     fun solvePart1(input: List<String>): Int {
         var runningCount = 0
-        for(line in input) {
+        for (line in input) {
             val matches = "[0-9]".toRegex().findAll(line)
             runningCount += (matches.first().value + matches.last().value).toInt()
         }
@@ -14,7 +13,7 @@ class Day01 {
 
     fun solvePart2(input: List<String>): Int {
         var runningCount = 0
-        for(line in input) {
+        for (line in input) {
             val matches = "(?=([0-9]|(one|two|three|four|five|six|seven|eight|nine)))".toRegex().findAll(line)
             runningCount += (ifTextReturnDigit(matches.first().groupValues[1]) + ifTextReturnDigit(matches.last().groupValues[1])).toInt()
         }
